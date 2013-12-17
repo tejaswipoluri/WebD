@@ -1,0 +1,39 @@
+<html>
+Birthday
+<head>
+    <meta charset = "UTF-8">
+    <script type="text/javascript" src="java.js"></script>
+    <script type="text/javascript" src= "try.js"></script>
+</head>
+<select  id="month" name="month" class="int" onChange="reassembleDate();" 
+ onBlur="monthselected=document.getElementById('month').value; reassembleDate();">
+    <!--<option value="">Month</option>-->
+    <option value="01" >January</option>
+    <option value="02" > February</option>
+    <option value="03" >March</option>
+    <option value="04" >  April</option>
+    <option value="05" >  May</option>
+    <option value="06" >  June</option>
+    <option value="07" >  July</option>
+    <option value="08" >  August</option>
+    <option value="09" >  September</option>
+    <option value="10" >  October</option>
+    <option value="11" >  November</option>
+    <option value="12" >  December</option>
+</select>
+
+<label id="year-label" class="year int">
+    Year
+</label>
+
+<select class="int" id="year" name="year" onChange="reassembleDate();" onBlur="yearselected=document.getElementById('year').value; reassembleDate();">
+</select>
+
+<label id="day-label" class="day int">
+    Day
+</label>
+
+<select id="dayselect" class="int" name="day" >
+</select>
+
+</html>
