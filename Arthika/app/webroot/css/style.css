@@ -1,0 +1,75 @@
+html,body
+{
+	height: 100%;
+	margin:0;
+}
+#content
+{
+	
+	min-height: 100%;
+}
+
+#footer p
+{
+	padding-top: 1%;
+	text-align: center;
+}
+#sidebar
+{
+	border-style: solid;
+	border-color: RED;
+}
+#welcome
+{
+	color:BLACK;
+	width:50%;
+	margin:1% auto;
+	padding: 1% auto;
+	float: left;
+}
+
+#headings
+{
+	color:BLACK;
+	width:15%;
+	margin:1% auto;
+	padding: 1% auto;
+}
+/*#usersform
+{
+	color:RED;
+	width:50%;
+}*/
+
+*
+{
+margin: 0;
+}
+html, body 
+{
+	background-color:#e9e9e9;
+	height: 100%;
+}
+#container
+{
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -4em;
+}
+#footer
+{
+	color:rgb(0,121,161);
+	width:100%;
+	background:#222222;
+}
+#footer, #push 
+{
+	height: 4em;
+}
+
+#footer, #push 
+{
+	clear: both;
+}
+

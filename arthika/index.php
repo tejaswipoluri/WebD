@@ -1,84 +1,41 @@
-<html>
-<head>
-  <title>Welcome page</title>
-  <link rel="stylesheet" href="css\foundation-3.2.5\stylesheets\foundation.css">
-  <link rel="stylesheet" href="css\foundation-3.2.5\stylesheets\app.css">
-  <style>
-body 
-{
-background-image:url('./images/money.jpg');
+<?php
+/**
+ * Requests collector.
+ *
+ *  This file collects requests if:
+ *	- no mod_rewrite is available or .htaccess files are not supported
+ *  - requires App.baseUrl to be uncommented in app/Config/core.php
+ *	- app/webroot is not set as a document root.
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @since         CakePHP(tm) v 0.2.9
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
+ */
+
+/**
+ *  Get CakePHP's root directory
+ */
+define('APP_DIR', 'app');
+define('DS', DIRECTORY_SEPARATOR);
+define('ROOT', dirname(__FILE__));
+define('WEBROOT_DIR', 'webroot');
+define('WWW_ROOT', ROOT . DS . APP_DIR . DS . WEBROOT_DIR . DS);
+
+/**
+ * This only needs to be changed if the "cake" directory is located
+ * outside of the distributed structure.
+ * Full path to the directory containing "cake". Do not add trailing directory separator
+ */
+if (!defined('CAKE_CORE_INCLUDE_PATH')) {
+	define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'lib');
 }
-</style>
-</head>
-<body>
-<!-- header -->
-<div style="width:100%" class="row fixed">
 
-  <nav  class="top-bar">
-    <ul  class="tabs ">
-      <li style = "background-color:#00bfff;">
-        <a style="color:#fff;font-size:2em;" href="index.php">
-          Arthika
-        </a>
-      </li>
-    </ul>
-    <ul class="right ">
-      <li>
-        <a href="home.php">
-          Home
-        </a>
-      </li>  
-      <li>
-        <a href="Aboutus.php">
-          About 
-        </a>
-      </li>
-      <li>
-        <a href="Contacts.php">
-          Contact
-        </a>
-
-      </li>
-    </ul>
-    
-  </nav> 
-</div>
-
-</br></br></br></br>
-
-<div style="width:100%" class="row">
-  <div  class="seven offset-by-one columns">
-    <div style="height:70%;" class="panel radius">
-      News Updates here 
-    </div>
-   
-  </div>
-<!-- style="position:relative;left:30%;" -->
-  <div style="height:70%;" class="three end columns panel radius">
-      <form style="top:4%;position:relative" >
-        <h3 class = "four columns centered ">Login</h3>
-        <label>Username</label>
-        <input type="text" / >
-        <label>Password</label>
-        <input type="password" />
-        <a style="left:32%" class = "button" href="home.php">Sign In</a>
-        <label><br>some image could be put up here</label>
-      </form>
-      
-    </div>
-</div>
-<!-- footer -->
-<div style="height:50px;background:#222222;position:fixed;bottom:0px;width:100%" class="row">
-  <div class="top-bar one column centered">
-      <ul  class="tabs ">
-      <li>
-        <a  style="color:#00bfff;font-size:1.5em"; href="index.php">
-          &copy;&nbsp;Nirmaan
-        </a>
-      </li>
-    </ul>
-  </div>  
-</div>
-
-</body>
-</html>
+require APP_DIR . DS . WEBROOT_DIR . DS . 'index.php';
