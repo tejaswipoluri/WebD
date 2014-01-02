@@ -42,9 +42,8 @@ class AppController extends Controller
 		'logoutRedirect' => array('controller' => 'users', 'action' => 'login')
 		)
 	);
-
 	public function beforeFilter() 
 	{
-	    $this->Auth->allow('index', 'view','loggedin');
+	    $this->Auth->allow('index', 'view');
 	}
 }

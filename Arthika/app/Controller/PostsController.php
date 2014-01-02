@@ -40,11 +40,15 @@
 	        throw new NotFoundException(__('Invalid post'));
 	    }
 
-	    if ($this->request->is(array('post', 'put'))) {
+	    if ($this->request->is(array('post', 'put'))) 
+	    {
 	        $this->Post->id = $id;
-	        if ($this->Post->save($this->request->data)) {
+	        debug($this->request->data);
+	        debug($this->Post->save($this->request->data));
+	        if ($this->Post->save($this->request->data)) 
+	        {
 	            $this->Session->setFlash(__('Your post has been updated.'));
-	            return $this->redirect(array('action' => 'index'));
+	            //return $this->redirect(array('action' => 'index'));
 	        }
 	        $this->Session->setFlash(__('Unable to update your post.'));
 	    }

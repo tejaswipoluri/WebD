@@ -1,4 +1,7 @@
 <?php 
+	$this->set('title','Arthika');
+ ?>
+<?php 
 echo "string";
 echo $id;
 echo $role;

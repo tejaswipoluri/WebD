@@ -1,25 +1,18 @@
-<!-- app/View/Users/add.ctp -->
 <?php 
-$this->set('title','Add user');	
+$this->set('title','Edit user');	
  ?>
 <div class="row">
-
 	<div class="columns large-3" id="sidebar">
 		<div id="welcome">
 			<?php echo "Welcome ".$name; ?>
 		</div>
 	</div>
-
 	<div id="usersform" class="columns large-9">
-	<?php 
-		echo $this->Form->create('User'); 
-	?>
-	    
-	    <div class="row" id="headings">
-	    	Add User
+		<div class="row" id="headings">
+			Edit Post
 	    </div>
-	        
 	        <?php
+	        echo $this->Form->create('User');
 	        echo "<div class='row'>";
 	        echo $this->Form->input('firstName',array('label'=>array('style'=>'width:15%;padding-left:2%','class'=>'columns large-1 inline'),'style'=>'width:80%','div'=>false));
 	        echo "</div>";
@@ -40,9 +33,6 @@ $this->set('title','Add user');
 	        echo "</div>";
 	        echo "<div class='row'>";
 	        echo $this->Form->input('username',array('label'=>array('style'=>'width:15%;padding-left:2%','class'=>'columns large-1 inline'),'style'=>'width:80%','div'=>false));
-	        echo "</div>";
-	        echo "<div class='row'>";
-	        echo $this->Form->input('password',array('label'=>array('style'=>'width:15%;padding-left:2%','class'=>'columns large-1 inline'),'style'=>'width:80%','div'=>false,'type'=>'password'));
 	        echo "</div>";
 	        echo "<div class='row'>";
 	        echo $this->Form->input
@@ -76,10 +66,12 @@ $this->set('title','Add user');
 	    			'style'=>'width:80%','div'=>false)
 	    	);
 	        echo "</div>";
+	        echo $this->Form->input('status',array('type' => 'hidden'));
+	        echo $this->Form->input('password',array('type' => 'hidden'));
+	        echo $this->Form->input('creator',array('type' => 'hidden'));
+	        echo $this->Form->input('id',array('type' => 'hidden'));
+	        echo $this->Form->button('Save',array('class'=>'button','style'=>'left:40%;width:25%;height:2%'));
 	    ?>
-
-	<?php echo $this->Form->button('Add',array('class'=>'button','style'=>'left:40%;width:25%;height:2%')); ?>
-	</div>
-
-
+	    <!-- <?php echo $this->element('sql_dump'); ?> -->
+	   </div>
 </div>

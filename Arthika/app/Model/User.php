@@ -1,8 +1,9 @@
 <?php 
 App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
-class User extends AppModel {
-    public $validate = array(
-        
+class User extends AppModel 
+{
+    public $validate = array
+    (
         'username' => array(
             'rule' => 'alphaNumeric',
             'required' => true,              
@@ -37,20 +38,24 @@ class User extends AppModel {
         'password' => array(
             'rule' => 'alphaNumeric',
             'required' => true,
+            'on'=>'create',
             'message' => 'Only alphaNumeric characters are allowed'
              )
     );
 
-
-    public function beforeSave($options = array()) {
-    if (isset($this->data[$this->alias]['password'])) {
-        $passwordHasher = new SimplePasswordHasher();
-        $this->data[$this->alias]['password'] = $passwordHasher->hash(
-            $this->data[$this->alias]['password']
-        );
-    }
+    public function beforeSave($options = array()) 
+    {
+        
+        if (isset($this->data[$this->alias]['password'])) 
+        {
+            debug("sahtie");
+            $passwordHasher = new SimplePasswordHasher();
+            $this->data[$this->alias]['password'] = $passwordHasher->hash
+            (
+                $this->data[$this->alias]['password']
+            );
+        }
     return true;
+    }   
 }
-}
-
- ?>
+?>

@@ -21,7 +21,7 @@
 			 <ul class="title-area">
 			  <li class="name">
 			   <h1>
-			   	<a href="login">Arthika</a>
+			   	<a href="/Arthika/users">Arthika</a>
 			   </h1>
 			  </li>
 			   <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menusfjlasfsl</span></a></li> -->
@@ -37,7 +37,7 @@
 			  	<!-- Right Nav Section --> 
 			  	<ul class="right">
 			  	 <li class="active">
-			  	 	<a href="#">Home</a>
+			  	 	<a href="/Arthika/users">Home</a>
 			  	 </li> 
 			  	 <li class="right"><!-- class="has-dropdown">  -->
 			  	 	<a href="#">About Us</a>
