@@ -40,7 +40,7 @@ $this->set('title','Users');
 	            			$user['User']['firstName'].' '.$user['User']['middleName'].' '.$user['User']['lastName'],
 							array(
 							'controller' => 'Users',
-							'action' => 'index',
+							'action' => 'view',
 							$user['User']['id']
 								)
 						); 
@@ -81,7 +81,7 @@ $this->set('title','Users');
         <td><?php echo $user['User']['created']; ?></td>
     </tr>
     <?php endforeach; ?>
-    <?php unset($post); ?>
+    <?php unset($user); ?>
 		    	</tbody>
 		    </table>
 	    </div>

@@ -1,7 +1,7 @@
 <?php 
 class UsersController extends AppController 
 {
-    //public $helpers = array('Html','Form');
+    public $helpers = array('Html','Form');
     public function beforeFilter() 
     {
         parent::beforeFilter();
@@ -20,11 +20,27 @@ class UsersController extends AppController
         echo $this->Auth->user('role');
         if ($this->Auth->user('role')=='admin')
         {
-            $this->set('users',$this->User->find('all'));
+            $this->set('users',$this->User->find('all',
+                array('conditions'=>
+                    array('User.status'=>1
+                        )    
+                    )
+                ));
         }
         
     }
-    public function view($id = null) {
+    public function myprofile() 
+    {
+        $this->set('name',$this->Auth->user('firstName'));
+        $this->User->id = $this->Auth->user('id');
+        $id = $this->Auth->user('id');
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        $this->set('user', $this->User->read(null, $id));
+    }
+    public function view($id = null) 
+    {
         $this->set('name',$this->Auth->user('firstName'));
         $this->User->id = $id;
         if (!$this->User->exists()) {
@@ -52,7 +68,7 @@ class UsersController extends AppController
             if ($this->User->save($this->request->data)) 
             {
                 $this->Session->setFlash(__('The user has been saved'));
-                //return $this->redirect(array('action' => 'login'));
+                return $this->redirect(array('action' => 'login'));
             }
             $this->Session->setFlash(
                 __('The user could not be saved. Please, try again.')
@@ -113,9 +129,15 @@ class UsersController extends AppController
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
-        if ($this->User->delete()) {
-            $this->Session->setFlash(__('User deleted'));
-            return $this->redirect(array('action' => 'index'));
+        
+        // if ($this->User->delete() {
+        //     $this->Session->setFlash(__('User deleted'));
+        //     return $this->redirect(array('action' => 'index'));
+        // }
+        if($this->User->saveField('status',0))
+        {
+            $this->Session->setFlash(__('user updated'));
+                 return $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash(__('User was not deleted'));
         return $this->redirect(array('action' => 'index'));

@@ -5,10 +5,10 @@ class Chapter extends AppModel
 	public $validate = array
     (
         'name' => array(
-            'rule' => 'alphaNumeric',
-            'required' => true,              
+            'required' => array(
+            'rule' => array('notEmpty'),
             'message' => 'Only alphaNumeric characters are allowed'
-             ),
+              )),
         'state' => array(
             'rule' => 'alphaNumeric',
             'required' => true,              
