@@ -2417,7 +2417,7 @@ div.switch {
 .th {
   line-height: 0;
   display: inline-block;
-  border: solid 4px white;
+  border: groove 4px white;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
   -webkit-transition: all 200ms ease-out;

@@ -67,7 +67,7 @@ $this->set('title','Edit user');
 	    	);
 	        echo "</div>";
 	        echo $this->Form->input('status',array('type' => 'hidden'));
-	        echo $this->Form->input('password',array('type' => 'hidden'));
+	        //echo $this->Form->input('password',array('type' => 'hidden'));
 	        echo $this->Form->input('creator',array('type' => 'hidden'));
 	        echo $this->Form->input('id',array('type' => 'hidden'));
 	        echo $this->Form->button('Save',array('class'=>'button','style'=>'left:40%;width:25%;height:2%'));

@@ -16,15 +16,16 @@ class UsersController extends AppController
     }
     public function listusers()
     {
+        $this->set('name',$this->Auth->user('firstName'));
         echo $this->Auth->user('role');
         if ($this->Auth->user('role')=='admin')
         {
-            echo "all rights";
             $this->set('users',$this->User->find('all'));
         }
         
     }
     public function view($id = null) {
+        $this->set('name',$this->Auth->user('firstName'));
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
