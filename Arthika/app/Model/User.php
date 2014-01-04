@@ -2,6 +2,7 @@
 App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
 class User extends AppModel 
 {
+    var $displayField = 'firstName';
     public $validate = array
     (
         'username' => array(
@@ -48,7 +49,7 @@ class User extends AppModel
         
         if (isset($this->data[$this->alias]['password'])) 
         {
-            debug("sahtie");
+            // debug("sahtie");
             $passwordHasher = new SimplePasswordHasher();
             $this->data[$this->alias]['password'] = $passwordHasher->hash
             (
@@ -57,5 +58,10 @@ class User extends AppModel
         }
     return true;
     }   
+    public function getusers()
+    {
+  //      debug($this->find('list'));
+        return $this->find('list');
+    }
 }
 ?>
